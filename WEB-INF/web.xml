@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+  version="4.0"
+  metadata-complete="true">
+
+    <servlet>
+      <servlet-name>FrontServlet</servlet-name>
+      <servlet-class>etu2068.framework.servlet.FrontServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>FrontServlet</servlet-name>
+      <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+
+    <context-param>
+      <param-name>NomduPackage</param-name>
+  <!-- Remplacez models par le nom de votre package ou on prend tous les models que vous aviez creer et ne touche a rien SVP! -->
+      <param-value>serveur</param-value> 
+    </context-param>
+
+    <context-param>
+      <param-name>reinitialiser</param-name>
+  <!-- Remplacez reinitialiser par le nom de votre fonction qui fait la reinitialisation des attributs dans les class singletons que vous aviez creer et ne touche a rien SVP! -->
+      <param-value>reinitialiser</param-value> 
+    </context-param>
+
+    <context-param>
+      <param-name>auth_session</param-name>
+  <!-- Remplacez isConnected par le nom du session que vous voulez utiliser pour connaitre si l'utilisateur est connecte, elle retourne true ou false et ne touche a rien SVP! -->
+      <param-value>isConnected</param-value> 
+    </context-param>
+
+    <context-param>
+      <param-name>profil_session</param-name>
+  <!-- Remplacez profil par le nom du session que vous voulez utiliser pour connaitre le profil de l'utilisateur, elle retourne true ou false et ne touche a rien SVP! -->
+      <param-value>profil</param-value> 
+    </context-param>
+
+    <multipart-config>
+        <max-file-size>5242880</max-file-size> <!-- Taille maximale du fichier (en octets) -->
+        <max-request-size>20971520</max-request-size> <!-- Taille maximale totale de la requête (en octets) -->
+        <file-size-threshold>0</file-size-threshold> <!-- Seuil de taille du fichier pour écriture directe sur le disque (0 pour toujours écrire en mémoire) -->
+    </multipart-config>
+
+    <dependency>
+      <groupId>org.jdom</groupId>
+      <artifactId>jdom2</artifactId>
+      <version>2.0.5</version>
+    </dependency>
+
+
+
+    
+
+   
+
+</web-app>
